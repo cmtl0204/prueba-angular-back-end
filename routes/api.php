@@ -27,3 +27,12 @@ Route::post('login', [\App\Http\Controllers\AuthController::class, 'login']);
 
 Route::middleware('auth:sanctum')
     ->get('logout', [\App\Http\Controllers\AuthController::class, 'logout']);
+
+Route::apiResource('animals', \App\Http\Controllers\AnimalController::class);
+Route::apiResource('authors', \App\Http\Controllers\AuthorController::class);
+Route::apiResource('books', \App\Http\Controllers\BookController::class);
+Route::apiResource('clients', \App\Http\Controllers\ClientController::class);
+Route::apiResource('movies', \App\Http\Controllers\MovieController::class);
+Route::apiResource('people', \App\Http\Controllers\PersonController::class);
+Route::apiResource('positions', \App\Http\Controllers\PositionController::class);
+Route::apiResource('zoos', \App\Http\Controllers\ZooController::class);
