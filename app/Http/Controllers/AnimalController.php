@@ -11,13 +11,7 @@ class AnimalController extends Controller
     public function index()
     {
         $data = Animal::get();
-        response()->json([
-            'msg' => [
-                'summary' => 'Consulta de estudiantes',
-                'detail' => '',
-            ],
-            'data' => $data
-        ]);
+        return response()->json($data);
     }
 
     public function store(Request $request)
@@ -30,24 +24,12 @@ class AnimalController extends Controller
         $animal->image = $request->input('image');
         $animal->save();
 
-        response()->json([
-            'msg' => [
-                'summary' => 'success',
-                'detail' => '',
-            ],
-            'data' => $animal
-        ]);
+        return response()->json($animal);
     }
 
     public function show(Animal $animal)
     {
-        response()->json([
-            'msg' => [
-                'summary' => 'success',
-                'detail' => '',
-            ],
-            'data' => $animal
-        ]);
+        return response()->json($animal);
     }
 
     public function update(Request $request, Animal $animal)
@@ -58,25 +40,13 @@ class AnimalController extends Controller
         $animal->image = $request->input('image');
         $animal->save();
 
-        response()->json([
-            'msg' => [
-                'summary' => 'success',
-                'detail' => '',
-            ],
-            'data' => $animal
-        ]);
+        return response()->json($animal);
     }
 
     public function destroy(Animal $animal)
     {
         $animal->delete();
 
-        response()->json([
-            'msg' => [
-                'summary' => 'success',
-                'detail' => '',
-            ],
-            'data' => $animal
-        ]);
+        response()->json(['rta' => true]);
     }
 }

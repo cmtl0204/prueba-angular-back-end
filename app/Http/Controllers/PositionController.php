@@ -10,13 +10,7 @@ class PositionController extends Controller
     public function index()
     {
         $data = Position::get();
-        response()->json([
-            'msg' => [
-                'summary' => 'Consulta de estudiantes',
-                'detail' => '',
-            ],
-            'data' => $data
-        ]);
+        response()->json($data);
     }
 
     public function store(Request $request)
@@ -26,24 +20,12 @@ class PositionController extends Controller
         $position->description = $request->input('description');
         $position->save();
 
-        response()->json([
-            'msg' => [
-                'summary' => 'success',
-                'detail' => '',
-            ],
-            'data' => $position
-        ]);
+        response()->json($position);
     }
 
     public function show(Position $position)
     {
-        response()->json([
-            'msg' => [
-                'summary' => 'success',
-                'detail' => '',
-            ],
-            'data' => $position
-        ]);
+        response()->json($position);
     }
 
     public function update(Request $request, Position $position)
@@ -52,25 +34,13 @@ class PositionController extends Controller
         $position->description = $request->input('description');
         $position->save();
 
-        response()->json([
-            'msg' => [
-                'summary' => 'success',
-                'detail' => '',
-            ],
-            'data' => $position
-        ]);
+        response()->json($position);
     }
 
     public function destroy(Position $position)
     {
         $position->delete();
 
-        response()->json([
-            'msg' => [
-                'summary' => 'success',
-                'detail' => '',
-            ],
-            'data' => $position
-        ]);
+        response()->json(['rta' => true]);
     }
 }

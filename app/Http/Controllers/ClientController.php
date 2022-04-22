@@ -10,13 +10,7 @@ class ClientController extends Controller
     public function index()
     {
         $data = Client::get();
-        response()->json([
-            'msg' => [
-                'summary' => 'Consulta de estudiantes',
-                'detail' => '',
-            ],
-            'data' => $data
-        ]);
+        response()->json($data);
     }
 
     public function store(Request $request)
@@ -27,24 +21,12 @@ class ClientController extends Controller
         $client->birthdate = $request->input('birthdate');
         $client->save();
 
-        response()->json([
-            'msg' => [
-                'summary' => 'success',
-                'detail' => '',
-            ],
-            'data' => $client
-        ]);
+        response()->json($client);
     }
 
     public function show(Client $client)
     {
-        response()->json([
-            'msg' => [
-                'summary' => 'success',
-                'detail' => '',
-            ],
-            'data' => $client
-        ]);
+        response()->json($client);
     }
 
     public function update(Request $request, Client $client)
@@ -54,25 +36,13 @@ class ClientController extends Controller
         $client->birthdate = $request->input('birthdate');
         $client->save();
 
-        response()->json([
-            'msg' => [
-                'summary' => 'success',
-                'detail' => '',
-            ],
-            'data' => $client
-        ]);
+        response()->json($client);
     }
 
     public function destroy(Client $client)
     {
         $client->delete();
 
-        response()->json([
-            'msg' => [
-                'summary' => 'success',
-                'detail' => '',
-            ],
-            'data' => $client
-        ]);
+        response()->json(['rta' => true]);
     }
 }

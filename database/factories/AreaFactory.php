@@ -4,7 +4,7 @@ namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class ZooFactory extends Factory
+class AreaFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -14,8 +14,7 @@ class ZooFactory extends Factory
     public function definition()
     {
         return [
-            'name' => $this->faker->firstName(),
-            'description' => $this->faker->sentence(),
+            'name' => $this->faker->word()
         ];
     }
 }

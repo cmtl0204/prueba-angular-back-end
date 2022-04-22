@@ -11,13 +11,7 @@ class MovieController extends Controller
     public function index()
     {
         $data = Movie::get();
-        response()->json([
-            'msg' => [
-                'summary' => 'Consulta de estudiantes',
-                'detail' => '',
-            ],
-            'data' => $data
-        ]);
+        response()->json($data);
     }
 
     public function store(Request $request)
@@ -30,24 +24,12 @@ class MovieController extends Controller
         $movie->price = $request->input('price');
         $movie->save();
 
-        response()->json([
-            'msg' => [
-                'summary' => 'success',
-                'detail' => '',
-            ],
-            'data' => $movie
-        ]);
+        response()->json($movie);
     }
 
     public function show(Movie $movie)
     {
-        response()->json([
-            'msg' => [
-                'summary' => 'success',
-                'detail' => '',
-            ],
-            'data' => $movie
-        ]);
+        response()->json($movie);
     }
 
     public function update(Request $request, Movie $movie)
@@ -59,25 +41,13 @@ class MovieController extends Controller
         $movie->price = $request->input('price');
         $movie->save();
 
-        response()->json([
-            'msg' => [
-                'summary' => 'success',
-                'detail' => '',
-            ],
-            'data' => $movie
-        ]);
+        response()->json($movie);
     }
 
     public function destroy(Movie $movie)
     {
         $movie->delete();
 
-        response()->json([
-            'msg' => [
-                'summary' => 'success',
-                'detail' => '',
-            ],
-            'data' => $movie
-        ]);
+        response()->json(['rta' => true]);
     }
 }

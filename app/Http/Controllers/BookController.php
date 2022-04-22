@@ -11,13 +11,7 @@ class BookController extends Controller
     public function index()
     {
         $data = Book::get();
-        response()->json([
-            'msg' => [
-                'summary' => 'Consulta de estudiantes',
-                'detail' => '',
-            ],
-            'data' => $data
-        ]);
+        response()->json($data);
     }
 
     public function store(Request $request)
@@ -42,13 +36,7 @@ class BookController extends Controller
 
     public function show(Book $book)
     {
-        response()->json([
-            'msg' => [
-                'summary' => 'success',
-                'detail' => '',
-            ],
-            'data' => $book
-        ]);
+        response()->json($book);
     }
 
     public function update(Request $request, Book $book)
@@ -61,25 +49,13 @@ class BookController extends Controller
         $book->stock = $request->input('stock');
         $book->save();
 
-        response()->json([
-            'msg' => [
-                'summary' => 'success',
-                'detail' => '',
-            ],
-            'data' => $book
-        ]);
+        response()->json($book);
     }
 
     public function destroy(Book $book)
     {
         $book->delete();
 
-        response()->json([
-            'msg' => [
-                'summary' => 'success',
-                'detail' => '',
-            ],
-            'data' => $book
-        ]);
+        response()->json(['rta' => true]);
     }
 }

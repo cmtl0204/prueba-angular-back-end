@@ -14,7 +14,11 @@ class PersonFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'name' => $this->faker->firstName(),
+            'lastname' => $this->faker->lastName(),
+            'identification' => $this->faker->randomNumber(9, true),
+            'birthdate' => $this->faker->date(),
+            'image' => $this->faker->imageUrl(640, 480, 'animals', true),
         ];
     }
 }

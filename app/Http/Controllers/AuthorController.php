@@ -10,13 +10,7 @@ class AuthorController extends Controller
     public function index()
     {
         $data = Author::get();
-        response()->json([
-            'msg' => [
-                'summary' => 'Consulta de estudiantes',
-                'detail' => '',
-            ],
-            'data' => $data
-        ]);
+        return response()->json($data);
     }
 
     public function store(Request $request)
@@ -29,24 +23,12 @@ class AuthorController extends Controller
         $author->telephone = $request->input('telephone');
         $author->save();
 
-        response()->json([
-            'msg' => [
-                'summary' => 'success',
-                'detail' => '',
-            ],
-            'data' => $author
-        ]);
+        return response()->json($author);
     }
 
     public function show(Author $author)
     {
-        response()->json([
-            'msg' => [
-                'summary' => 'success',
-                'detail' => '',
-            ],
-            'data' => $author
-        ]);
+        return response()->json($author);
     }
 
     public function update(Request $request, Author $author)
@@ -58,25 +40,13 @@ class AuthorController extends Controller
         $author->telephone = $request->input('telephone');
         $author->save();
 
-        response()->json([
-            'msg' => [
-                'summary' => 'success',
-                'detail' => '',
-            ],
-            'data' => $author
-        ]);
+        return response()->json($author);
     }
 
     public function destroy(Author $author)
     {
         $author->delete();
 
-        response()->json([
-            'msg' => [
-                'summary' => 'success',
-                'detail' => '',
-            ],
-            'data' => $author
-        ]);
+        response()->json(['rta' => true]);
     }
 }

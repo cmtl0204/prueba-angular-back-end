@@ -4,7 +4,7 @@ namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class MovieFactory extends Factory
+class MagazineFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -15,9 +15,7 @@ class MovieFactory extends Factory
     {
         return [
             'title' => $this->faker->word(),
-            'director' => $this->faker->firstName(),
-            'photo' => $this->faker->imageUrl(640, 480, 'animals', true),
-            'price' => $this->faker->randomFloat(2,1,100),
+            'price' => $this->faker->randomFloat(2, 10, 100),
         ];
     }
 }

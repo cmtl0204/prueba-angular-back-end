@@ -14,7 +14,10 @@ class AnimalFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'name'=>$this->faker->firstName(),
+            'age'=>$this->faker->numberBetween(18,100),
+            'description'=>$this->faker->sentence(),
+            'image'=>$this->faker->imageUrl(640, 480, 'animals', true),
         ];
     }
 }
