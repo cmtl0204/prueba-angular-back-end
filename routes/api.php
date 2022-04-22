@@ -36,3 +36,7 @@ Route::apiResource('movies', \App\Http\Controllers\MovieController::class);
 Route::apiResource('people', \App\Http\Controllers\PersonController::class);
 Route::apiResource('positions', \App\Http\Controllers\PositionController::class);
 Route::apiResource('zoos', \App\Http\Controllers\ZooController::class);
+Route::apiResource('areas', \App\Http\Controllers\AreaController::class);
+Route::apiResource('magazines', \App\Http\Controllers\MagazineController::class);
+Route::apiResource('modalities', \App\Http\Controllers\ModalityController::class);
+Route::apiResource('projects', \App\Http\Controllers\ProjectController::class);
