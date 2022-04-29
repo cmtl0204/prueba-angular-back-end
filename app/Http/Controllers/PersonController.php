@@ -11,7 +11,7 @@ class PersonController extends Controller
     public function index()
     {
         $data = Person::get();
-        response()->json($data);
+        return response()->json($data);
     }
 
     public function store(Request $request)
@@ -25,12 +25,12 @@ class PersonController extends Controller
         $person->image = $request->input('image');
         $person->save();
 
-        response()->json($person);
+        return response()->json($person);
     }
 
     public function show(Person $person)
     {
-        response()->json($person);
+        return response()->json($person);
     }
 
     public function update(Request $request, Person $person)
@@ -43,13 +43,13 @@ class PersonController extends Controller
         $person->image = $request->input('image');
         $person->save();
 
-        response()->json($person);
+        return response()->json($person);
     }
 
     public function destroy(Person $person)
     {
         $person->delete();
 
-        response()->json(['rta' => true]);
+        return response()->json(['rta' => true]);
     }
 }

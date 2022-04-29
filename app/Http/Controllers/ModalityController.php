@@ -10,7 +10,7 @@ class ModalityController extends Controller
     public function index()
     {
         $data = Modality::get();
-        response()->json($data);
+        return response()->json($data);
     }
 
     public function store(Request $request)
@@ -20,12 +20,12 @@ class ModalityController extends Controller
         $modality->description = $request->input('description');
         $modality->save();
 
-        response()->json($modality);
+        return response()->json($modality);
     }
 
     public function show(Modality $modality)
     {
-        response()->json($modality);
+        return response()->json($modality);
     }
 
     public function update(Request $request, Modality $modality)
@@ -34,13 +34,13 @@ class ModalityController extends Controller
         $modality->description = $request->input('description');
         $modality->save();
 
-        response()->json($modality);
+        return response()->json($modality);
     }
 
     public function destroy(Modality $modality)
     {
         $modality->delete();
 
-        response()->json(['rta' => true]);
+        return response()->json(['rta' => true]);
     }
 }

@@ -11,7 +11,7 @@ class MovieController extends Controller
     public function index()
     {
         $data = Movie::get();
-        response()->json($data);
+        return response()->json($data);
     }
 
     public function store(Request $request)
@@ -24,12 +24,12 @@ class MovieController extends Controller
         $movie->price = $request->input('price');
         $movie->save();
 
-        response()->json($movie);
+        return response()->json($movie);
     }
 
     public function show(Movie $movie)
     {
-        response()->json($movie);
+        return response()->json($movie);
     }
 
     public function update(Request $request, Movie $movie)
@@ -41,13 +41,13 @@ class MovieController extends Controller
         $movie->price = $request->input('price');
         $movie->save();
 
-        response()->json($movie);
+        return response()->json($movie);
     }
 
     public function destroy(Movie $movie)
     {
         $movie->delete();
 
-        response()->json(['rta' => true]);
+        return response()->json(['rta' => true]);
     }
 }

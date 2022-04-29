@@ -11,7 +11,8 @@ class ProjectController extends Controller
     public function index()
     {
         $data = Project::get();
-        response()->json($data);
+
+        return response()->json($data);
     }
 
     public function store(Request $request)
@@ -23,12 +24,12 @@ class ProjectController extends Controller
         $project->state = $request->input('state');
         $project->save();
 
-        response()->json($project);
+        return response()->json($project);
     }
 
     public function show(Project $project)
     {
-        response()->json($project);
+        return response()->json($project);
     }
 
     public function update(Request $request, Project $project)
@@ -39,13 +40,13 @@ class ProjectController extends Controller
         $project->state = $request->input('state');
         $project->save();
 
-        response()->json($project);
+        return response()->json($project);
     }
 
     public function destroy(Project $project)
     {
         $project->delete();
 
-        response()->json(['rta' => true]);
+        return response()->json(['rta' => true]);
     }
 }

@@ -10,7 +10,7 @@ class ZooController extends Controller
     public function index()
     {
         $data = Zoo::get();
-        response()->json($data);
+        return response()->json($data);
     }
 
     public function store(Request $request)
@@ -20,12 +20,12 @@ class ZooController extends Controller
         $zoo->description = $request->input('description');
         $zoo->save();
 
-        response()->json($zoo);
+        return response()->json($zoo);
     }
 
     public function show(Zoo $zoo)
     {
-        response()->json($zoo);
+        return response()->json($zoo);
     }
 
     public function update(Request $request, Zoo $zoo)
@@ -34,13 +34,13 @@ class ZooController extends Controller
         $zoo->description = $request->input('description');
         $zoo->save();
 
-        response()->json($zoo);
+        return response()->json($zoo);
     }
 
     public function destroy(Zoo $zoo)
     {
         $zoo->delete();
 
-        response()->json(['rta' => true]);
+        return response()->json(['rta' => true]);
     }
 }

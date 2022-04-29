@@ -11,7 +11,7 @@ class MagazineController extends Controller
     public function index()
     {
         $data = Magazine::get();
-        response()->json($data);
+        return response()->json($data);
     }
 
     public function store(Request $request)
@@ -22,12 +22,12 @@ class MagazineController extends Controller
         $magazine->price = $request->input('price');
         $magazine->save();
 
-        response()->json($magazine);
+        return response()->json($magazine);
     }
 
     public function show(Magazine $magazine)
     {
-        response()->json($magazine);
+        return response()->json($magazine);
     }
 
     public function update(Request $request, Magazine $magazine)
@@ -37,13 +37,13 @@ class MagazineController extends Controller
         $magazine->price = $request->input('price');
         $magazine->save();
 
-        response()->json($magazine);
+        return response()->json($magazine);
     }
 
     public function destroy(Magazine $magazine)
     {
         $magazine->delete();
 
-        response()->json(['rta' => true]);
+        return response()->json(['rta' => true]);
     }
 }

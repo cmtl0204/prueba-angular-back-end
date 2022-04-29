@@ -47,6 +47,6 @@ class AnimalController extends Controller
     {
         $animal->delete();
 
-        response()->json(['rta' => true]);
+        return response()->json(['rta' => true]);
     }
 }

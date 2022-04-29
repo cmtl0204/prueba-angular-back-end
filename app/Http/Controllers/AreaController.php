@@ -10,7 +10,7 @@ class AreaController extends Controller
     public function index()
     {
         $data = Area::get();
-        response()->json($data);
+        return response()->json($data);
     }
 
     public function store(Request $request)
@@ -19,12 +19,12 @@ class AreaController extends Controller
         $area->name = $request->input('name');
         $area->save();
 
-        response()->json($area);
+        return response()->json($area);
     }
 
     public function show(Area $area)
     {
-        response()->json($area);
+        return response()->json($area);
     }
 
     public function update(Request $request, Area $area)
@@ -32,13 +32,13 @@ class AreaController extends Controller
         $area->name = $request->input('name');
         $area->save();
 
-        response()->json($area);
+        return response()->json($area);
     }
 
     public function destroy(Area $area)
     {
         $area->delete();
 
-        response()->json(['rta' => true]);
+        return response()->json(['rta' => true]);
     }
 }

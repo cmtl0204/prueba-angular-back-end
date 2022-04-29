@@ -10,7 +10,7 @@ class ClientController extends Controller
     public function index()
     {
         $data = Client::get();
-        response()->json($data);
+        return response()->json($data);
     }
 
     public function store(Request $request)
@@ -21,12 +21,12 @@ class ClientController extends Controller
         $client->birthdate = $request->input('birthdate');
         $client->save();
 
-        response()->json($client);
+        return response()->json($client);
     }
 
     public function show(Client $client)
     {
-        response()->json($client);
+        return response()->json($client);
     }
 
     public function update(Request $request, Client $client)
@@ -36,13 +36,13 @@ class ClientController extends Controller
         $client->birthdate = $request->input('birthdate');
         $client->save();
 
-        response()->json($client);
+        return response()->json($client);
     }
 
     public function destroy(Client $client)
     {
         $client->delete();
 
-        response()->json(['rta' => true]);
+        return response()->json(['rta' => true]);
     }
 }
